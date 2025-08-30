@@ -23,8 +23,7 @@ export const authOptions: NextAuthOptions = {
           });
           return { id: "1", token: data.api_access_token, name: credentials.email };
         } catch (error) {
-          console.log(error);
-          throw new Error("Invalid credentials");
+          throw error; // Propagate the original error message
         }
       },
     }),

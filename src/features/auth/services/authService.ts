@@ -36,7 +36,6 @@ export async function loginUser(credentials: LoginRequest): Promise<LoginRespons
       const maybeAxiosError = err as { response?: { data?: { message?: string } }; message?: string };
       message = maybeAxiosError.response?.data?.message || maybeAxiosError.message || message;
     }
-
     throw new Error(message);
   }
 }

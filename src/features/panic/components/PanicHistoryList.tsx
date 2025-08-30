@@ -1,4 +1,3 @@
-// src/features/panic/PanicHistory.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,7 +11,6 @@ interface PanicHistoryProps {
 
 export default function PanicHistory({ token }: PanicHistoryProps) {
   const [panics, setPanics] = useState<Panic[]>([]);
-  const [statusId, setStatusId] = useState<number | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +19,7 @@ export default function PanicHistory({ token }: PanicHistoryProps) {
       setLoading(true);
       setError(null);
       try {
-        const data = await fetchPanics(token, statusId);
+        const data = await fetchPanics(token);
         setPanics(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to fetch panics");
@@ -31,24 +29,11 @@ export default function PanicHistory({ token }: PanicHistoryProps) {
     };
 
     refreshPanics();
-  }, [token, statusId]); // Dependencies remain token and statusId
+  }, [token]); // Removed statusId dependency
 
   return (
-    <div className="p-4 border rounded">
-      <h3 className="text-xl font-semibold mb-2">Panic History</h3>
-      <div className="mb-4">
-        <label className="mr-2">Filter by Status:</label>
-        <select
-          value={statusId || ""}
-          onChange={(e) => setStatusId(e.target.value ? parseInt(e.target.value) : undefined)}
-          className="border p-1 rounded"
-        >
-          <option value="">All</option>
-          <option value="1">In Progress</option>
-          <option value="2">Cancelled</option>
-          <option value="3">Resolved</option>
-        </select>
-      </div>
+    <div className="p-4 rounded ">
+      <h3 className="text-xl font-semibold mb-[50px]">Panic History</h3>
       {error && <p className="text-red-500">{error}</p>}
       {loading ? (
         <p>Loading...</p>

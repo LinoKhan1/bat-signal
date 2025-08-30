@@ -29,13 +29,14 @@ export default function PanicCard({ panic, token }: PanicCardProps) {
   };
 
   return (
-    <div className="border p-2 rounded mb-2">
-      <p>ID: {panic.id}</p>
-      <p>Location: ({panic.latitude}, {panic.longitude})</p>
-      <p>Type: {panic.panic_type}</p>
-      <p>Details: {panic.details || "No details"}</p>
-      <p>Status: {panic.status.name}</p>
-      <p>Created: {new Date(panic.created_at).toLocaleString()}</p>
+    <div className="rounded-[50px] bg-white  p-[50px] mb-2">
+      <h3 className="text-deep-black font-bold mb-[24px]">{panic.panic_type} Alert!</h3>
+      <p className="text-gray-600">ID: {panic.id}</p>
+      <p className="text-gray-600">Location: ({panic.latitude}, {panic.longitude})</p>
+      <p className="text-gray-600">Type: {panic.panic_type}</p>
+      <p className="text-gray-600">Details: {panic.details || "No details"}</p>
+      <p className="text-gray-600">Status: {panic.status.name}</p>
+      <p className="text-gray-600">Created: {new Date(panic.created_at).toLocaleString()}</p>
       {panic.status.id === 1 && (
         <button
           onClick={handleCancel}

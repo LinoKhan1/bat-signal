@@ -1,7 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
-import Navbar from "../components/Navbar";
 import Providers from "./providers"
 import "./globals.css";
 
@@ -31,7 +30,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
          <Providers>
-          <Navbar />
           <main className="p-6">{children}</main>
          </Providers>
           
