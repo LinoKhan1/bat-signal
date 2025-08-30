@@ -34,8 +34,8 @@ body {
 
 h1 {
   font-family: 'Poppins', sans-serif;
-  @apply font-bold;
-  font-size: 80px;
+  @apply fontbold;
+  font-size: 60px;
   margin-bottom: 0.5rem;
   line-height: 80px;
 }
