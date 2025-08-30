@@ -4,16 +4,20 @@ import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import Image from "next/image";
 
+// LoginForm Component
 export default function LoginForm() {
+  // State for email and password inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, loading, error } = useAuth();
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await login(email, password);
   };
 
+  // Render the login form
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-gray-100 py-12">
       <h1 className="text-center text-deep-black mb-8 py-[50px]">BatSignal PMS</h1>

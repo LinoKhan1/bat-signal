@@ -3,11 +3,15 @@
 import { useState } from "react";
 import { sendPanic } from "@/features/panic/services/panicService";
 
+// Props for the PanicForm component
 interface PanicFormProps {
   token: string;
 }
 
+// PanicForm component
 export default function PanicForm({ token }: PanicFormProps) {
+
+  // State variables for form fields and status messages
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const [panicType, setPanicType] = useState("");
@@ -16,6 +20,7 @@ export default function PanicForm({ token }: PanicFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!longitude || !latitude) {
@@ -39,6 +44,7 @@ export default function PanicForm({ token }: PanicFormProps) {
     }
   };
 
+  // Render the form
   return (
     <div className="lg:sticky lg:top-8">
       <div className="bg-white rounded-[50px] p-[25px]">

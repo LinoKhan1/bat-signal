@@ -5,6 +5,7 @@ import { fetchPanics } from "@/features/panic/services/panicService";
 import PanicCard from "@/components/PanicCard";
 import { Panic } from "../types";
 
+
 interface PanicHistoryProps {
   token: string;
 }
