@@ -46,6 +46,8 @@ The application features a secure authentication flow, a panic dashboard with fo
 
 ## Project Architecture
 
+The project follows a modular and feature-driven architecture using Next.js 13 with the App Router. The src folder organizes the code into logical layers: app contains the main pages, layouts, and API routes (/api/auth for authentication and /api/panic for panic-related endpoints). The features directory isolates domain-specific logic, with subfolders like auth and panic containing components, services, hooks, and types. Common utilities such as apiClient and authOptions reside under features/common/utils. The providers folder includes the NextAuth session provider for authentication context. This structure promotes separation of concerns, reusability, and scalability, making it easy to maintain and extend features while keeping the UI, API logic, and services clearly organized.
+
 ```sh
 src/
 ├─ app/
@@ -98,7 +100,7 @@ NEXT_AUTH_SECRET=ADD SECRET KEY
 
 ```
 
-4. ** Run Server**
+4. **Run Development Server**
 ```sh
 npm run dev
 ```
@@ -106,7 +108,7 @@ npm run dev
 ## Deploy on Vercel
 The project is already deployed on Vercel and is publicly accessible at:
 
-[https://your-vercel-app.vercel.app](https://your-vercel-app.vercel.app)
+[https://bat-signal-one.vercel.app/dashboard]
 
 Vercel automatically handles builds and deployments for each push to the main branch, ensuring the live version is always up-to-date.
 
