@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BatSignal PMS
 
-## Getting Started
+## Project Description
+BatSignal PMS is a modern web application for Panic Management Systems. The system allows authenticated users to raise panic alerts, view panic history, and cancel ongoing panics. The app is built with **Next.js**, **React**, **NextAuth.js**, and **Tailwind CSS** for a responsive and user-friendly interface.
 
-First, run the development server:
+The application features a secure authentication flow, a panic dashboard with forms and history, and a modular architecture to easily extend functionality.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Table of Contents
+- [Features](#features)
+- [Project Architecture](#project-architecture)
+- [Setup Instructions](#setup-instructions)
+- [Deploy on Vercel](#deploy-on-vercel)
+- [Technology Choices](#technology-choices)
+- [License](#license)
+
+---
+
+## Features
+- **User Authentication**
+  - Login and logout functionality
+  - JWT-based authentication using NextAuth.js
+- **Panic Management**
+  - Raise a panic with location, type, and details
+  - Cancel an active panic
+  - View panic history with status filters
+- **Responsive Dashboard**
+  - Panic form and panic history components
+  - Mobile-first design
+  - Dynamic layout adjustments based on screen size
+- **Error Handling**
+  - Client-side form validation
+  - API request error handling with user feedback
+
+---
+## Technology Choices
+
+- **Next.js 15** – Framework for React apps with Server Components and API routes
+- **React.js** – Frontend library for building UI components
+- **NextAuth.js** – Authentication and session management
+- **Tailwind CSS** – Utility-first CSS for styling
+- **Axios** – HTTP client for API requests
+- **TypeScript** – Type safety and improved developer experience
+- **Vercel** - Deployment ease with Next.js
+
+## Project Architecture
+
+```sh
+src/
+├─ app/
+│ ├─ api/
+│ │ ├─ auth/
+│ │ │ └─ [...nextauth]/route.ts
+│ │ ├─ panic/
+│ │ │ ├─ send/route.ts
+│ │ │ ├─ cancel/route.ts
+│ │ │ └─ history/route.ts
+│ ├─ page.tsx
+│ ├─ layout.tsx
+│ ├─ global.css
+│ └─ components/
+│ ├─ Header.tsx
+│ └─ PanicDashboard.tsx
+├─ features/
+│ ├─ auth/
+│ │ ├─ components/LoginForm.tsx
+│ │ ├─ services/authService.ts
+│ │ ├─ hooks/useAuth.ts
+│ │ └─ types.ts
+│ ├─ common/utils/apiClient.ts
+│ ├─ common/utils/authOptions.ts
+│ └─ panic/
+│ ├─ components/PanicCard.tsx, PanicForm.tsx, PanicHistoryList.tsx
+│ ├─ components/PanicHistoryList.tsx
+│ ├─ services/panicService.ts
+│ └─ types.ts
+├─ providers/Providers.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/bat-signal.git
+cd bat-signal
+```
+2. **Install Dependencies**
+```sh
+npm install
+```
+3. **Environment Variables**
+```sh
+NEXT_PUBLIC_API_BASE_URL="https://batman-assessment.fusebox-prod.co.za/api/v1"
+NEXT_AUTH_SECRET=ADD SECRET KEY
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. ** Run Server**
+```sh
+npm run dev
+```
 
 ## Deploy on Vercel
+The project is already deployed on Vercel and is publicly accessible at:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[https://your-vercel-app.vercel.app](https://your-vercel-app.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel automatically handles builds and deployments for each push to the main branch, ensuring the live version is always up-to-date.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
