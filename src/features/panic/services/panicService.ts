@@ -1,13 +1,13 @@
 // src/features/panic/services/panicService.ts
-import axios from "axios";
+import apiClient from "../../common/utils/apiClient";
 import { ApiResponse, SendPanicResponse, FetchPanicsResponse, Panic } from "../types";
 
-const API_BASE_URL = "/api/panic"; // Relative to the app's base URL
+const API_BASE_URL = "/panic"; // Relative path under /api
 
 export const sendPanic = async (token: string, payload: { longitude: string; latitude: string; panic_type?: string; details?: string }): Promise<number> => {
   try {
-    const response = await axios.post<ApiResponse<SendPanicResponse>>(`${API_BASE_URL}/send`, payload, {
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    const response = await apiClient.post<ApiResponse<SendPanicResponse>>(`${API_BASE_URL}/send`, payload, {
+      headers: { Authorization: `Bearer ${token}` },
     });
     return response.data.data.panic_id;
   } catch (error: unknown) {
@@ -18,8 +18,8 @@ export const sendPanic = async (token: string, payload: { longitude: string; lat
 
 export const cancelPanic = async (token: string, panicId: number): Promise<void> => {
   try {
-    await axios.post<ApiResponse<object>>(`${API_BASE_URL}/cancel`, { panic_id: panicId }, {
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    await apiClient.post<ApiResponse<object>>(`${API_BASE_URL}/cancel`, { panic_id: panicId }, {
+      headers: { Authorization: `Bearer ${token}` },
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Failed to cancel panic";
@@ -30,7 +30,7 @@ export const cancelPanic = async (token: string, panicId: number): Promise<void>
 export const fetchPanics = async (token: string, statusId?: number): Promise<Panic[]> => {
   try {
     const params = statusId ? { status_id: statusId } : {};
-    const response = await axios.get<ApiResponse<FetchPanicsResponse>>(`${API_BASE_URL}/history`, {
+    const response = await apiClient.get<ApiResponse<FetchPanicsResponse>>(`${API_BASE_URL}/history`, {
       headers: { Authorization: `Bearer ${token}` },
       params,
     });
