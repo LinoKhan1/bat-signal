@@ -72,7 +72,6 @@ src/
 │ ├─ common/utils/authOptions.ts
 │ └─ panic/
 │ ├─ components/PanicCard.tsx, PanicForm.tsx, PanicHistoryList.tsx
-│ ├─ components/PanicHistoryList.tsx
 │ ├─ services/panicService.ts
 │ └─ types.ts
 ├─ providers/Providers.tsx
