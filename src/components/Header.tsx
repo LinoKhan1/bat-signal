@@ -16,16 +16,20 @@ export default function Header() {
 
   return (
     <header className="bg-white rounded-[50px] shadow-md p-4 flex justify-between items-center">
-      <div className="">
-        <h3 className="font-bold text-deep-black flex items-center gap-2">
+      <div>
+        {/* Smaller text on mobile, larger on bigger screens */}
+        <h3 className="font-bold text-deep-black flex items-center gap-2 text-base sm:text-lg lg:text-xl">
           BatSignal PMS
         </h3>
       </div>
       <div className="flex items-center gap-4">
-        <span className="text-deep-black">Welcome {session?.user?.name || "User"}</span>
+        {/* Hidden on mobile & md, shown only from lg */}
+        <span className="hidden lg:inline text-deep-black">
+          Welcome {session?.user?.name || "User"}
+        </span>
         <button
           onClick={handleLogout}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 secondary"
+          className="secondary"
         >
           Logout
         </button>

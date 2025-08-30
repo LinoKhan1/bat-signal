@@ -23,7 +23,7 @@ export default function LoginForm() {
       <h1 className="text-center text-deep-black mb-8 py-[50px]">BatSignal PMS</h1>
       <div className="rounded-[50px] max-w-4xl w-full bg-white shadow-lg overflow-hidden">
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-6">
+          <div className="hidden md:block md:col-span-6">
             <Image
               src="/batman.jpg"
               alt="Batman Signal"
@@ -32,7 +32,7 @@ export default function LoginForm() {
               className="w-full h-[500px] rounded-[50px] object-cover"
             />
           </div>
-          <div className="col-span-6 flex items-center p-6">
+          <div className="col-span-12 md:col-span-6 flex items-center p-6">
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
               <h3 className="text-deep-black font-bold mb-4">Sign In</h3>
               <div className="flex flex-col">
@@ -53,7 +53,7 @@ export default function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 font-inter"
+                  className="border  border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 font-inter"
                 />
               </div>
 

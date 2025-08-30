@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
   // Custom pages for authentication flow
   pages: {
     // Redirect to login page for sign-in
-    signIn: "/login",
+    signIn: "/",
   },
   // Callback functions to customize authentication behavior
   callbacks: {

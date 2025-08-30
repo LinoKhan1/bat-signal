@@ -6,7 +6,7 @@
  */
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/lib/authOptions";
+import { authOptions } from "@/features/common/utils/authOptions";
 import axios from "axios";
 
 // Handler for GET requests to fetch panic history

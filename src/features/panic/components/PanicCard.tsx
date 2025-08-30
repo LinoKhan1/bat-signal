@@ -2,8 +2,8 @@
 "use client";
 
 import { useState } from "react";
-import { cancelPanic } from "../features/panic/services/panicService";
-import { Panic } from "../features/panic/types";
+import { cancelPanic } from "../services/panicService";
+import { Panic } from "../types";
 
 interface PanicCardProps {
   panic: Panic;
@@ -29,7 +29,7 @@ export default function PanicCard({ panic, token }: PanicCardProps) {
   };
 
   return (
-    <div className="rounded-[50px] bg-white  p-[50px] mb-2">
+    <div className="rounded-[50px] bg-white  p-[50px] mb-6">
       <h3 className="text-deep-black font-bold mb-[24px]">{panic.panic_type} Alert!</h3>
       <p className="text-gray-600">ID: {panic.id}</p>
       <p className="text-gray-600">Location: ({panic.latitude}, {panic.longitude})</p>
@@ -41,7 +41,7 @@ export default function PanicCard({ panic, token }: PanicCardProps) {
         <button
           onClick={handleCancel}
           disabled={loading}
-          className="mt-2 px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 disabled:bg-gray-400"
+          className="secondary mt-4"
         >
           {loading ? "Cancelling..." : "Cancel"}
         </button>

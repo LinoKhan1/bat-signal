@@ -4,7 +4,7 @@
  * Supports both GET and POST methods.
  */
 import NextAuth from "next-auth";
-import { authOptions } from "@/app/lib/authOptions";
+import { authOptions } from "@/features/common/utils/authOptions";
 
 // Create NextAuth handler with the provided auth options
 const handler = NextAuth(authOptions);

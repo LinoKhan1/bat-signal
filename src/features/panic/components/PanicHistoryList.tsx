@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchPanics } from "@/features/panic/services/panicService";
-import PanicCard from "@/components/PanicCard";
+import PanicCard from "@/features/panic/components/PanicCard";
 import { Panic } from "../types";
 
 

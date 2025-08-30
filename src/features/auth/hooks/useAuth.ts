@@ -66,7 +66,7 @@ export function useAuth() {
 
   // Logout using NextAuth signOut
   const logout = async () => {
-    await signOut({ callbackUrl: "/login" });
+    await signOut({ callbackUrl: "/" });
     setAuthState({ token: null, loading: false, error: null });
   };
 

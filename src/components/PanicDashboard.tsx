@@ -16,14 +16,15 @@ export default function PanicDashboard() {
     <div className="min-h-screen bg-gray-100">
       <Header />
       <div className="grid grid-cols-12 gap-6 p-6">
-
-         <div className="col-span-7">
-          <PanicHistory token={token} />
-        </div>
-        <div className="col-span-5">
+        {/* Form comes first on mobile and md, spans 12 there. On lg, col-span-5 */}
+        <div className="col-span-12 lg:col-span-5 order-1 lg:order-2">
           <PanicForm token={token} />
         </div>
 
+        {/* History comes second on mobile and md, spans 12 there. On lg, col-span-7 */}
+        <div className="col-span-12 lg:col-span-7 order-2 lg:order-1">
+          <PanicHistory token={token} />
+        </div>
       </div>
     </div>
   );

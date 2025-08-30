@@ -46,7 +46,7 @@ export default function PanicForm({ token }: PanicFormProps) {
 
   // Render the form
   return (
-    <div className="lg:sticky lg:top-8">
+    <div className="lg:sticky lg:top-6 mt-[75px]">
       <div className="bg-white rounded-[50px] p-[25px]">
         <h3 className="text-xl font-semibold mb-6">Send Panic</h3>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -94,7 +94,7 @@ export default function PanicForm({ token }: PanicFormProps) {
           <button
             type="submit"
             disabled={loading}
-            className="bg-green-600 w-full text-white px-4 py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
+            className="primary w-full"
           >
             {loading ? "Sending..." : "Send Panic"}
           </button>
