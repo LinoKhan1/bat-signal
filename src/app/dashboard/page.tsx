@@ -1,7 +1,7 @@
 "use client"
 // src/app/dashboard/page.tsx
 import { useSession, signOut } from "next-auth/react";
-import PanicDashboard from "./PanicDashboard";
+import PanicDashboard from "@/components/PanicDashboard";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
