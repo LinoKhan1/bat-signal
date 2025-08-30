@@ -39,7 +39,7 @@ export async function loginUser(credentials: LoginRequest): Promise<LoginRespons
   } catch (err: unknown) {
     let message = "Login failed";
 
-    // Attempt to extract a more specific error message
+    // 
     if (typeof err === "object" && err !== null) {
       // Axios errors usually have response.data.message
       const maybeAxiosError = err as { response?: { data?: { message?: string } }; message?: string };
