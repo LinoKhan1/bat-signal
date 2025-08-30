@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white rounded-[50px] shadow-md p-4 flex justify-between items-center">
+    <header className="m-4 bg-white rounded-[50px] shadow-md p-4 flex justify-between items-center">
       <div>
         {/* Smaller text on mobile, larger on bigger screens */}
         <h3 className="font-bold text-deep-black flex items-center gap-2 text-base sm:text-lg lg:text-xl">

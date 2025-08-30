@@ -1,61 +1,55 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
 
+/* Root variables */
 :root {
-  --background: #f7f7f7;
-  --foreground: #010000;
-  /* Colors */
+  --background: #f7f7f7; /* Fixed background */
+  --foreground: #010000; /* Fixed foreground */
   --color-deep-black: #010000;
   --color-bold-red: #ce3109;
   --color-white: #ffffff;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: 'Inter', sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-heading: 'Poppins', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #010000;
-    --foreground: #f7f7f7;
-  }
-}
-
+/* Remove theme switching */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
   padding: 0;
 }
 
+/* Headings */
 h1 {
-  font-family: 'Poppins', sans-serif;
-  font-weight:bold;
+  font-family: var(--font-heading);
+  font-weight: bold;
   font-size: 60px;
   margin-bottom: 0.5rem;
   line-height: 80px;
 }
 
 h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-heading);
   font-size: 48px;
 }
+
 h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;  
+  font-family: var(--font-heading);
+  @apply text-[24px] md:text-3xl;
 }
 
+/* Paragraph */
 p {
-  font-family: 'Inter', sans-serif;
-  font-size: 24px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  @apply md:text-2xl;
 }
 
+/* Buttons */
 button {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-heading);
   font-size:16px;
   font-weight: bold;
   cursor: pointer;
@@ -73,9 +67,10 @@ button.secondary {
   color: white;
 }
 
+/* Inputs */
 input {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px; /* Default input size, adjustable */
+  font-family: var(--font-sans);
+  font-size: 16px;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
