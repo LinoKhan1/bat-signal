@@ -19,7 +19,7 @@ export default function LoginForm() {
 
   // Render the login form
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-100 py-12">
+    <section className="min-h-screen flex flex-col items-center justify-center py-12">
       <h1 className="text-center text-deep-black mb-8 py-[50px]">BatSignal PMS</h1>
       <div className="rounded-[50px] max-w-4xl w-full bg-white shadow-lg overflow-hidden">
         <div className="grid grid-cols-12 gap-6">

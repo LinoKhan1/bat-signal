@@ -29,7 +29,7 @@ export default function PanicCard({ panic, token }: PanicCardProps) {
   };
 
   return (
-    <div className="rounded-[50px] bg-white p-4  md:p-[50px] mb-6">
+    <div className="rounded-[25px] md:rounded-[50px] bg-white p-6  md:p-[50px] mb-6">
       <h3 className="text-deep-black font-bold mb-[24px]">{panic.panic_type} Alert!</h3>
       <p className="text-gray-600">ID: {panic.id}</p>
       <p className="text-gray-600">Location: ({panic.latitude}, {panic.longitude})</p>

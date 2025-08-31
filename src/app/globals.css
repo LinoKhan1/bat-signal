@@ -25,9 +25,10 @@ body {
 h1 {
   font-family: var(--font-heading);
   font-weight: bold;
-  font-size: 60px;
+  font-size: 48px;
   margin-bottom: 0.5rem;
-  line-height: 80px;
+  line-height: 50px;
+  @apply md:text-[60px] md:leading-[70px];
 }
 
 h2 {

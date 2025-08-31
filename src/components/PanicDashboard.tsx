@@ -9,9 +9,9 @@ export default function PanicDashboard() {
   const { token } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       <Header />
-      <div className="grid grid-cols-12 gap-6 p-6">
+      <div className="grid grid-cols-12 gap-6 p-2 md:p-6">
         <div className="col-span-12 lg:col-span-5 order-1 lg:order-2">
           <PanicForm token={token!} />
         </div>
