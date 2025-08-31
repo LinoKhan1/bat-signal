@@ -13,6 +13,7 @@ The application features a secure authentication flow, a panic dashboard with fo
 - [Setup Instructions](#setup-instructions)
 - [Deploy on Vercel](#deploy-on-vercel)
 - [Technology Choices](#technology-choices)
+- [Security] (#security considerations)
 - [License](#license)
 
 ---
@@ -112,6 +113,16 @@ The project is already deployed on Vercel and is publicly accessible at:
 
 Vercel automatically handles builds and deployments for each push to the main branch, ensuring the live version is always up-to-date.
 
+## Security
+This project implements token-based authentication using NextAuth with JWT, meeting the assessment's requirement for enterprise-grade security. The current setup uses a Bearer token retrieved from the /login endpoint, stored securely in the session, and validated via middleware for all protected routes. While the base implementation is sufficient for the proof-of-concept scope, the following enhancements could be considered based on future security requirements:
+
+- **Shorten JWT Expiration with Refresh:** Configure a shorter JWT lifespan (e.g., 15 minutes) with a manual refresh mechanism to reduce token exposure, prompting re-authentication when nearing expiry.
+- **Client-Side Token Blacklist:** Add a local blacklist to revoke compromised tokens on the client side, forcing re-login if a token is flagged.
+- **Enhanced Input Validation:** Implement sanitization and stricter validation for login credentials and panic details to prevent injection attacks.
+- **Secure Cookie Configuration:** Enforce HTTPS and use HttpOnly, Secure, and SameSite=Strict cookies to protect against XSS and CSRF.
+- **Authentication Event Logging:** Introduce client-side logging of login attempts and actions for basic auditability, enhancing traceability.
+
+These enhancements are optional and can be prioritized based on specific security needs or deployment context beyond the current assessment.
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
