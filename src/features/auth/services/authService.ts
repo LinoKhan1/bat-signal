@@ -3,7 +3,7 @@
  * This includes sending login requests to the backend API
  * and processing the responses.
  */
-import axios from "axios";
+import apiClient from "../../common/utils/apiClient";
 import { LoginRequest, LoginResponse } from "../types";
 
 // Generic API response structure
@@ -15,10 +15,12 @@ interface ApiResponse<T> {
 // Function to log in a user via the internal proxy route
 export async function loginUser(credentials: LoginRequest): Promise<LoginResponse> {
   try {
-    // Make a POST request to the internal proxy route
-    console.log("Sending login request to proxy with credentials:", credentials);
-    const response = await axios.post<ApiResponse<LoginResponse>>(
-      "/api/auth/proxy", // Relative path to the local proxy route
+    // Make a POST request to the internal proxy route using apiClient
+    console.log("Attempting login with credentials:", credentials);
+    console.log("Target URL:", "/auth/proxy"); // Relative path, apiClient adds /api prefix
+    console.log("apiClient baseURL:", apiClient.defaults.baseURL); // Log apiClient baseURL
+    const response = await apiClient.post<ApiResponse<LoginResponse>>(
+      "/auth/proxy", // Relative path, resolves to /api/auth/proxy with apiClient
       credentials,
       {
         headers: {
