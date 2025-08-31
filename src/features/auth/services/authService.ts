@@ -1,10 +1,14 @@
+// src/features/auth/services/authService.ts
 /**
  * Service to handle user authentication.
  * This includes sending login requests to the backend API
  * and processing the responses.
  */
-import apiClient from "../../common/utils/apiClient";
+import axios from "axios";
 import { LoginRequest, LoginResponse } from "../types";
+
+// Base URL for the API, set in environment variables
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // Generic API response structure
 interface ApiResponse<T> {
@@ -12,20 +16,12 @@ interface ApiResponse<T> {
   message: string;
   data: T;
 }
-
-/**
- * Function to log in a user via the internal proxy route
- */
+// Function to log in a user
 export async function loginUser(credentials: LoginRequest): Promise<LoginResponse> {
   try {
-    const targetUrl = "/auth/proxy"; // relative URL, apiClient should add `/api`
-
-    console.log("Attempting login with credentials:", credentials);
-    console.log("Target URL:", targetUrl);
-    console.log("apiClient baseURL:", apiClient.defaults.baseURL);
-
-    const response = await apiClient.post<ApiResponse<LoginResponse>>(
-      targetUrl,
+    // Make a POST request to the login endpoint
+    const response = await axios.post<ApiResponse<LoginResponse>>(
+      `${API_BASE_URL}/login`,
       credentials,
       {
         headers: {
@@ -34,27 +30,21 @@ export async function loginUser(credentials: LoginRequest): Promise<LoginRespons
         },
       }
     );
-
-    console.log("Proxy response received:", response.data);
-
-    // Validate response
-    if (response.data?.status === "success" && response.data.data) {
+    // Check if the response indicates success
+    if (response.data.status === "success") {
       return response.data.data; // { api_access_token }
     } else {
-      throw new Error(response.data?.message || "Login failed: Invalid response");
+      throw new Error(response.data.message || "Login failed");
     }
   } catch (err: unknown) {
     let message = "Login failed";
 
+    // 
     if (typeof err === "object" && err !== null) {
-      const maybeAxiosError = err as { 
-        response?: { data?: { message?: string } }; 
-        message?: string 
-      };
+      // Axios errors usually have response.data.message
+      const maybeAxiosError = err as { response?: { data?: { message?: string } }; message?: string };
       message = maybeAxiosError.response?.data?.message || maybeAxiosError.message || message;
     }
-
-    console.error("Login error caught:", message);
     throw new Error(message);
   }
 }
