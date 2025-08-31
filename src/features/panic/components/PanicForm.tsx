@@ -73,7 +73,7 @@ export default function PanicForm({ token }: PanicFormProps) {
             </div>
           </div>
           <div>
-            <label className="block mb-1">Panic Type:</label>
+            <label className="block mb-1">Panic Type: (Optional)</label>
             <input
               type="text"
               value={panicType}
@@ -82,7 +82,7 @@ export default function PanicForm({ token }: PanicFormProps) {
             />
           </div>
           <div>
-            <label className="block mb-1">Details:</label>
+            <label className="block mb-1">Details: (Optional)</label>
             <textarea
               value={details}
               onChange={(e) => setDetails(e.target.value)}
