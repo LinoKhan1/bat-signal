@@ -46,8 +46,8 @@ export default function PanicForm({ token }: PanicFormProps) {
 
   // Render the form
   return (
-    <div className="lg:sticky lg:top-6 mt-[75px]">
-      <div className="bg-white rounded-[50px] p-[25px]">
+    <div className="lg:sticky lg:top-6 mt-[30px] md:mt-[75px]">
+      <div className="bg-white rounded-[25px] md:rounded-[50px] p-[25px]">
         <h3 className="text-xl font-semibold mb-6">Send Panic</h3>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex space-x-6">

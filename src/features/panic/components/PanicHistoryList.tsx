@@ -33,8 +33,8 @@ export default function PanicHistory({ token }: PanicHistoryProps) {
   }, [token]); // Removed statusId dependency
 
   return (
-    <div className="p-4 rounded ">
-      <h3 className="text-xl font-semibold mb-[50px]">Panic History</h3>
+    <div className="p-1 md:p-4 rounded ">
+      <h3 className="text-xl font-semibold mb-[30px] md:mb-[50px]">Panic History</h3>
       {error && <p className="text-red-500">{error}</p>}
       {loading ? (
         <p>Loading...</p>
