@@ -16,6 +16,7 @@ interface ApiResponse<T> {
 export async function loginUser(credentials: LoginRequest): Promise<LoginResponse> {
   try {
     // Make a POST request to the internal proxy route
+    console.log("Sending login request to proxy with credentials:", credentials);
     const response = await axios.post<ApiResponse<LoginResponse>>(
       "/api/auth/proxy", // Relative path to the local proxy route
       credentials,
@@ -26,6 +27,7 @@ export async function loginUser(credentials: LoginRequest): Promise<LoginRespons
         },
       }
     );
+    console.log("Proxy response received:", response.data);
     // Check if the response indicates success
     if (response.data.status === "success") {
       return response.data.data; // { api_access_token }
@@ -40,6 +42,7 @@ export async function loginUser(credentials: LoginRequest): Promise<LoginRespons
       const maybeAxiosError = err as { response?: { data?: { message?: string } }; message?: string };
       message = maybeAxiosError.response?.data?.message || maybeAxiosError.message || message;
     }
+    console.log("Login error caught:", message);
     throw new Error(message);
   }
 }
