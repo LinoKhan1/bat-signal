@@ -122,7 +122,7 @@ This project implements token-based authentication using NextAuth with JWT, meet
 - **Secure Cookie Configuration:** Enforce HTTPS and use HttpOnly, Secure, and SameSite=Strict cookies to protect against XSS and CSRF.
 - **Authentication Event Logging:** Introduce client-side logging of login attempts and actions for basic auditability, enhancing traceability.
 
-These enhancements are optional and can be prioritized based on specific security needs or deployment context beyond the current assessment.
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
