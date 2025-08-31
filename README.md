@@ -13,7 +13,7 @@ The application features a secure authentication flow, a panic dashboard with fo
 - [Setup Instructions](#setup-instructions)
 - [Deploy on Vercel](#deploy-on-vercel)
 - [Technology Choices](#technology-choices)
-- [Security](#security considerations)
+- [Security](#security-considerations)
 - [License](#license)
 
 ---
