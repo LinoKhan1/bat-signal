@@ -108,7 +108,7 @@ npm run dev
 ## Deploy on Vercel
 The project is already deployed on Vercel and is publicly accessible at:
 
-[https://bat-signal-one.vercel.app/dashboard]
+[https://bat-signal-one.vercel.app]
 
 Vercel automatically handles builds and deployments for each push to the main branch, ensuring the live version is always up-to-date.
 
